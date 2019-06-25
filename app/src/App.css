@@ -1,0 +1,18 @@
+#root {
+  height: 100vh;
+}
+
+.App {
+  display: flex;
+}
+
+.Main {
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.Chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

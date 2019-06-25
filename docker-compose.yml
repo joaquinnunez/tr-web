@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  tr-web:
+    build: .
+    container_name: tr-web
+    entrypoint: sh entrypoint.sh
+    working_dir: /home/node
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/home/node
