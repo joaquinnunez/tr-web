@@ -17,7 +17,7 @@ const COLORS = {
 'doge': '#BBA033',
 };
 
-const N = 36
+const N = 24
 const minVolume = 50
 
 class MultiLineChartLive extends Component {
@@ -26,12 +26,11 @@ class MultiLineChartLive extends Component {
     let data = this.props.data
     let volume = this.props.volume
     let range = this.props.range
-    if (R.isEmpty(data) || R.isEmpty(volume)) return (<div className="alert alert-primary" role="alert">Loading...</div>)
+    if (R.isEmpty(data) || R.isEmpty(volume) || volume === undefined) return (<div className="alert alert-primary" role="alert">Loading...</div>)
     let traces = []
     let index = data['index'].slice(-1*N)
     let blacklist = ['index']
     for (let coinIndex in data) {
-      console.log(coinIndex)
       if ((R.contains(coinIndex, blacklist) || volume[coinIndex] <= minVolume) && coinIndex!=='tusd') continue
       let coinName = coinIndex.split('btc')[0]
       if (coinName === '') coinName = 'btc'
